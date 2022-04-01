@@ -85,7 +85,7 @@ struct Args {
     step: Option<i32>,
     /// Whether to click the mouse after moving
     #[clap(short, long)]
-    click: Option<bool>,
+    click: bool,
     /// The movement pattern to use. Valid values are "back-and-forth" and "compass"
     #[clap(short, long)]
     pattern: Option<Pattern>,
@@ -108,7 +108,7 @@ fn main() {
 
     let interval = args.interval.unwrap_or(60);
     let step = args.step.unwrap_or(5);
-    let click = args.click.unwrap_or(false);
+    let click = args.click;
     let pattern = args.pattern.unwrap_or(Pattern::BackAndForth);
 
     let mouse = Mouse::new();
